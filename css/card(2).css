@@ -1,0 +1,135 @@
+/* start vairabels  */
+:root{
+    --main-color: #19c8fa;
+    --second-color: #777;
+    --transparent-color: rgb(15 116 143/70%);
+    --section-padding: 100px;
+}
+/* end vairabels  */
+/* start global rules  */
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+    body{
+    font-family:sans-serif;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    height: 100vh;
+}
+html{
+    scroll-behavior: smooth;
+}
+/* end global rules  */
+/* start responsive container  */
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    
+    /* small screen */
+    
+    @media (min-width:768px){
+        .container {
+            width: 750px;
+        }
+    }
+    
+    /* medium screen */
+    
+    @media (min-width:992px){
+        .container {
+            width: 970px;
+        }
+    }
+    
+    /* large screen */
+    
+    @media (min-width:1200px){
+        .container {
+            width: 1170px;
+        }
+    }
+/* end responsive container  */
+/* start card-one  */
+.card-one,.card-two{
+    width: 200px;
+    height: 300px;
+    background-color: #222;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.card-one::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: red;
+    width: 205px;
+    height: 305px;
+    z-index: -1;
+    border-radius: 10px;
+    display: none;
+    transition: 0.3s;
+    animation: one linear 3s infinite;
+}
+.card-one:hover::before{
+    display: block;
+}
+i{
+    color: #555;
+    font-size: 100px;
+    z-index: 100;
+}
+@keyframes one{
+    50%{
+        filter: hue-rotate(350deg);
+    }
+}
+/* end card-one  */
+/* start card-two  */
+.card-two{
+    overflow: hidden;
+}
+.card-two::before{
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 500px;
+    display: none;
+    background-image: linear-gradient(blue,red);
+}
+.card-two:hover::before{
+    animation: rotate infinite linear 3s;
+    display: block;
+}
+.card-two::after{
+    content: '';
+    position: absolute;
+    width: 195px;
+    height: 295px;
+    background-color: #222;
+    border-radius: 10px;
+}
+@keyframes rotate{
+    0%{
+        rotate: 0deg;
+    }
+    100%{
+        rotate: 360deg;
+    }
+}
+/* end card-two  */
